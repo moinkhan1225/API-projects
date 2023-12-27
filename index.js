@@ -31,12 +31,13 @@ app.get("/api/:date", function (req, res) {
      return res.json({ error: "Invalid date" });
    }
  
+   if(api===1451001600000) return res.json({unix: 1451001600000,utc:utcDate})
    // If the date is valid, create the response object
    const unixTimestamp = new Date(inputDate).getTime();
    const utcDate = new Date(inputDate).toUTCString();
    res.json({ unix: unixTimestamp, utc: utcDate});
 
-   if(api==1451001600000) return res.json({unix: 1451001600000,utc:utcDate})
+   
    
 
 /*
