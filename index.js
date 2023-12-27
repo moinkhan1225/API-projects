@@ -24,14 +24,14 @@ app.get("/api/:date", function (req, res) {
   let {date} = req.params;
   //date = new Date();
   const currentTime = new Date();
-  console.log(currentTime)
   //const intTime=parseInt(currentTime);
-  res.json(
+  if(date) return res.json(
     {
-      unix: currentTime.getTime(),
+      //unix: currentTime.getTime(),
       utc:  currentTime.toUTCString()
     });
 });
+
 
 
 
