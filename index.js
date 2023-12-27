@@ -31,7 +31,7 @@ app.get("/api/:date", function (req, res) {
    
    if(date==apiPath) return res.json({unix: apiPath,utc:"Fri, 25 Dec 2015 00:00:00 GMT"})
 
-   else if(date!=apiPath && isNaN(timestamp)) {
+   else if(isNaN(timestamp)) {
      return res.json({ error: "Invalid date" });
    }
  
