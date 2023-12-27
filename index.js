@@ -25,7 +25,7 @@ app.get("/api/:date", function (req, res) {
   //date = new Date();
   const currentTime = new Date();
   //const intTime=parseInt(currentTime);
-  if(date) return res.json(
+  if(date=="date") return res.json(
     {
       //unix: currentTime.getTime(),
       //utc:  currentTime.toUTCString()
