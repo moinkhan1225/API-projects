@@ -21,8 +21,9 @@ app.get("/", function (req, res) {
 
 // your first API endpoint... 
 app.get("/api/:date", function (req, res) {
-  const currentTime = new Date()
-  res.json({unix: parseFloat(currentTime)});
+  const currentTime = new Date();
+  const intTime=parseInt(currentTime);
+  res.json({unix: intTime});
 });
 
 
