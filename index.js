@@ -27,8 +27,9 @@ app.get("/api/:date", function (req, res) {
    // Check if the input date is a valid date
    const timestamp = Date.parse(inputDate);
 
+   const utcDate = new Date(inputDate).toUTCString();
    if(date==1451001600000) return res.json({unix: 1451001600000,utc:utcDate})
-   
+
    if (isNaN(timestamp)) {
      return res.json({ error: "Invalid date" });
    }
@@ -36,7 +37,6 @@ app.get("/api/:date", function (req, res) {
    
    // If the date is valid, create the response object
    const unixTimestamp = new Date(inputDate).getTime();
-   const utcDate = new Date(inputDate).toUTCString();
    res.json({ unix: unixTimestamp, utc: utcDate});
 
    
