@@ -18,15 +18,16 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
+function isDateValid(dateStr) {
+  return !isNaN(new Date(dateStr));
+}
 // your first API endpoint... 
 app.get("/api/:date", function (req, res) {
   let {date} = req.params;
   //date = new Date();
   const currentTime = new Date();
-  const validDate = new Date(date);
   //const intTime=parseInt(currentTime);
-  if(date==validDate) return res.json(
+  if(isDateValid(date)) return res.json(
     {
       unix: currentTime.getTime(),
       utc:  currentTime.toUTCString()
