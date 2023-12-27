@@ -39,10 +39,6 @@ app.get("/api/:date", function (req, res) {
    res.json({ unix: unixTimestamp, utc: utcDate});
    }
 
-  
-   
-   
-
 /*
   //date = new Date();
   const currentTime = new Date();
@@ -58,7 +54,7 @@ app.get("/api/:date", function (req, res) {
 });
 
 app.get("/api",((req,res)=>{
-  let currentTime = Date.now();
+  let currentTime = new Date().getTime();
   res.json({unix:currentTime,utc:currentTime})
 }))
   
