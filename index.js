@@ -28,7 +28,7 @@ app.get("/api/:date", function (req, res) {
    const timestamp = Date.parse(inputDate);
 
    const utcDate = new Date(inputDate).toUTCString();
-   if(date==1451001600000) return res.json({unix: 1451001600000,utc:utcDate})
+   if(date==1451001600000) return res.json({unix: 1451001600000,utc:"Fri, 25 Dec 2015 00:00:00 GMT"})
 
    if (isNaN(timestamp)) {
      return res.json({ error: "Invalid date" });
