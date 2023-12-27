@@ -35,7 +35,7 @@ app.get("/api/:date", function (req, res) {
      return res.json({ error: "Invalid date" });
    }
  
-   else if(date==){
+   else if(date==1){
     const currentTime = getTime();
     return res.json({unix:currentTime,utc:currentTime})
    }else{
