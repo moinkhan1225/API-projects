@@ -24,8 +24,9 @@ app.get("/api/:date", function (req, res) {
   let {date} = req.params;
   //date = new Date();
   const currentTime = new Date();
+  const validDate = new Date(date);
   //const intTime=parseInt(currentTime);
-  if(date==currentTime) return res.json(
+  if(date==validDate) return res.json(
     {
       unix: currentTime.getTime(),
       utc:  currentTime.toUTCString()
