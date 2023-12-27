@@ -22,7 +22,7 @@ app.get("/", function (req, res) {
 // your first API endpoint... 
 app.get("/api/:date", function (req, res) {
   let inputDate = req.params.date;
-  let {api} = req.params;
+  let {date} = req.params;
 
    // Check if the input date is a valid date
    const timestamp = Date.parse(inputDate);
@@ -31,7 +31,7 @@ app.get("/api/:date", function (req, res) {
      return res.json({ error: "Invalid date" });
    }
  
-   if(inputDate===1451001600000) return res.json({unix: 1451001600000,utc:utcDate})
+   if(date===1451001600000) return res.json({unix: 1451001600000,utc:utcDate})
    // If the date is valid, create the response object
    const unixTimestamp = new Date(inputDate).getTime();
    const utcDate = new Date(inputDate).toUTCString();
