@@ -28,8 +28,8 @@ app.get("/api/:date", function (req, res) {
   if(date=="date") return res.json(
     {
       //unix: currentTime.getTime(),
-      //utc:  currentTime.toUTCString()
-      test:date
+      utc:  currentTime.toUTCString()
+      
     });else if(date!="date") return res.json({
       error : "Invalid Date"
     })
