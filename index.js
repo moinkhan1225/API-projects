@@ -18,12 +18,24 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-function isDateValid(dateStr) {
-  return !isNaN(new Date(dateStr));
-}
+
 // your first API endpoint... 
 app.get("/api/:date", function (req, res) {
-  let {date} = req.params;
+  let inputDate = req.params.date;
+
+
+   // Check if the input date is a valid date
+   const timestamp = Date.parse(inputDate);
+
+   if (isNaN(timestamp)) {
+     return res.json({ error: "Invalid date" });
+   }
+ 
+   // If the date is valid, create the response object
+   const unixTimestamp = new Date(inputDate).getTime();
+   res.json({ unix: unixTimestamp });
+
+/*
   //date = new Date();
   const currentTime = new Date();
   //const intTime=parseInt(currentTime);
@@ -34,7 +46,7 @@ app.get("/api/:date", function (req, res) {
       
     });else if(date!="date") return res.json({
       error : "Invalid Date"
-    })
+    })*/
 });
 
 
