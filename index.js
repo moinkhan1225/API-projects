@@ -22,7 +22,7 @@ app.get("/", function (req, res) {
 // your first API endpoint... 
 app.get("/api/:date", function (req, res) {
   let inputDate = req.params.date;
-  let {date} = req.params;
+  const {date} = req.params;
 
    // Check if the input date is a valid date
    const timestamp = Date.parse(inputDate);
@@ -35,7 +35,7 @@ app.get("/api/:date", function (req, res) {
      return res.json({ error: "Invalid date" });
    }
  
-   else if(date==1){
+   else if(date==""){
     let currentTime = new Date();
     currentTime=currentTime.getHours()+":"+currentTime.getMinutes()+":"+currentTime.getSeconds();
     return res.json({unix:currentTime,utc:currentTime})
