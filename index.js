@@ -22,10 +22,12 @@ app.get("/", function (req, res) {
 // your first API endpoint... 
 app.get("/api/:date", function (req, res) {
   let {date} = req.params;
-  date = new Date();
-  const currentTime = new Date()
+  //date = new Date();
+  const currentTime = date
   //const intTime=parseInt(currentTime);
-  res.json({unix: data.getMilliseconds()});
+  res.json(
+    {unix: currentTime.getMilliseconds()},
+    {});
 });
 
 
