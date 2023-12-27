@@ -33,7 +33,8 @@ app.get("/api/:date", function (req, res) {
  
    // If the date is valid, create the response object
    const unixTimestamp = new Date(inputDate).getTime();
-   res.json({ unix: unixTimestamp });
+   const utcDate = new Date(inputDate).toUTCString();
+   res.json({ unix: unixTimestamp, utc: utcDate});
 
 /*
   //date = new Date();
