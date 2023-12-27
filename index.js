@@ -58,8 +58,7 @@ app.get("/api/:date", function (req, res) {
 });
 
 app.get("/api",((req,res)=>{
-  let currentTime = new Date();
-  currentTime=currentTime.getHours()+":"+currentTime.getMinutes()+":"+currentTime.getSeconds();
+  let currentTime = Date.now();
   res.json({unix:currentTime,utc:currentTime})
 }))
 
