@@ -23,7 +23,7 @@ app.get("/", function (req, res) {
 app.get("/api/:date", function (req, res) {
   let {date} = req.params;
   //date = new Date();
-  const currentTime = new Date()
+  const currentTime = new Date();
   //const intTime=parseInt(currentTime);
   res.json(
     {unix: currentTime},
