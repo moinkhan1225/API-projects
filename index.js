@@ -39,11 +39,7 @@ app.get("/api/:date", function (req, res) {
    res.json({ unix: unixTimestamp, utc: utcDate});
    }
 
-  app.get("/api",((req,res)=>{
-    let currentTime = new Date();
-    currentTime=currentTime.getHours()+":"+currentTime.getMinutes()+":"+currentTime.getSeconds();
-    res.json({unix:currentTime,utc:currentTime})
-  }))
+  
    
    
 
@@ -61,7 +57,11 @@ app.get("/api/:date", function (req, res) {
     })*/
 });
 
-
+app.get("/api",((req,res)=>{
+  let currentTime = new Date();
+  currentTime=currentTime.getHours()+":"+currentTime.getMinutes()+":"+currentTime.getSeconds();
+  res.json({unix:currentTime,utc:currentTime})
+}))
 
 
 // listen for requests :)
