@@ -33,18 +33,17 @@ app.get("/api/:date", function (req, res) {
 
    else if(isNaN(timestamp)) {
      return res.json({ error: "Invalid date" });
-   }
- 
-   else if(date===""){
-    let currentTime = new Date();
-    currentTime=currentTime.getHours()+":"+currentTime.getMinutes()+":"+currentTime.getSeconds();
-    return res.json({unix:currentTime,utc:currentTime})
    }else{
    // If the date is valid, create the response object
    const unixTimestamp = new Date(inputDate).getTime();
    res.json({ unix: unixTimestamp, utc: utcDate});
    }
 
+  app.get("/api",((req,res)=>{
+    let currentTime = new Date();
+    currentTime=currentTime.getHours()+":"+currentTime.getMinutes()+":"+currentTime.getSeconds();
+    return res.json({unix:currentTime,utc:currentTime})
+  }))
    
    
 
